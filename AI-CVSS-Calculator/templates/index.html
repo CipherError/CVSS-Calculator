@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI CVSS Calculator</title>
+</head>
+
+<body>
+
+<h2>AI CVSS Calculator</h2>
+
+<label>Vulnerability Name</label><br>
+<input id="name" type="text"><br><br>
+
+<label>Description / Steps</label><br>
+<textarea id="desc" rows="8" cols="50"></textarea><br><br>
+
+<button onclick="analyze()">Analyze</button>
+
+<pre id="output"></pre>
+
+<script>
+
+async function analyze(){
+
+const name=document.getElementById("name").value
+const desc=document.getElementById("desc").value
+
+const response=await fetch("/analyze",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+name:name,
+description:desc
+})
+
+})
+
+const data=await response.json()
+
+document.getElementById("output").innerText=
+JSON.stringify(data,null,2)
+
+}
+
+</script>
+
+</body>
+</html>
