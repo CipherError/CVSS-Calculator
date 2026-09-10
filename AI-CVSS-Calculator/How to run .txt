@@ -1,5 +1,5 @@
 Run in the normal terminal : ollama run llama3
 
-open the cmd of the project and run : python -m uvicorn app:app --reload
+Open the cmd of the project and run : python -m uvicorn app:app --reload
 
-open the browser and run : http://127.0.0.1:8000
+Open the browser and run : http://127.0.0.1:8000
